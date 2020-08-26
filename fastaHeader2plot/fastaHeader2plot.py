@@ -1,7 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# For this script to work it is necessary to have the clustal omega available in the PATH of the operating system.
+"""
+AUTHOR
+Diogo de J. S. Machado
+
+REQUIREMENTS
+For this script to work it is necessary:
+ - have the clustal omega available in the PATH of the operating system (downlaod from <http://www.clustal.org/omega/#Download>);
+ - install the used python libraries from PyPI (biotext, sweep, sklearn, matplotlib and pandas).
+"""
 
 from sweep import fas2sweep
 from sklearn.cluster import AgglomerativeClustering
