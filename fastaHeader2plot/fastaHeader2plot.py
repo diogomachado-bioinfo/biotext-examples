@@ -9,6 +9,9 @@ REQUIREMENTS
 For this script to work it is necessary:
  - have the clustal omega available in the PATH of the operating system (downlaod from <http://www.clustal.org/omega/#Download>);
  - install the used python libraries from PyPI (biotext, sweep, sklearn, matplotlib and pandas).
+ 
+RECOMMENDATION
+Files will be generated with the execution of this script, so it is recommended that it be executed inside an empty folder, for organizational reasons.
 """
 
 from sweep import fas2sweep
@@ -56,7 +59,10 @@ clus = clus.labels_
 # define consensus
 cons = []
 for i in np.unique(clus):
-    cons.append(getCons(np.array(fastatxt)[clus==i]))
+    c, align = getCons(np.array(fastatxt)[clus==i])
+    h = list(np.array(list(range(1,sum(clus==i)+1))).astype(str))
+    fastawrite (list2fasta(align, header = h), 'align_'+str(i)+'.fasta') # save align file
+    cons.append(c)
 cons = list2fasta(cons)
 
 # find and remove species name
