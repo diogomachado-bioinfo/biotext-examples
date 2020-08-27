@@ -6,6 +6,7 @@ AUTHOR
 Diogo de J. S. Machado
 
 REQUIREMENTS
+The testing of this script was done on Windows 10.
 For this script to work it is necessary:
  - have the clustal omega available in the PATH of the operating system (downlaod from <http://www.clustal.org/omega/#Download>);
  - install the used python libraries from PyPI (biotext, sweep, sklearn, matplotlib and pandas).
