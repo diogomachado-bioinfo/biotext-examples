@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import string
-from biotext.fastatools import getHeader, fastaread, removePattern, getCons, list2fasta, getSeq
+from biotext.fastatools import getHeader, fastaread, removePattern, getCons, list2fasta, getSeq, fastawrite
 from biotext.aminocode import encodefile, decodetext
 
 # PARAMETERS
