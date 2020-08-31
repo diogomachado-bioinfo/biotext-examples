@@ -9,20 +9,19 @@ REQUIREMENTS
 The testing of this script was done on Windows 10.
 For this script to work it is necessary:
  - have the clustal omega available in the PATH of the operating system (downlaod from <http://www.clustal.org/omega/#Download>);
- - install the used python libraries from PyPI (biotext, sweep, sklearn, matplotlib and pandas).
+ - install the used python libraries from PyPI (biotext, sklearn, matplotlib and pandas).
  
 RECOMMENDATION
 Files will be generated with the execution of this script, so it is recommended that it be executed inside an empty folder, for organizational reasons.
 """
 
-from sweep import fas2sweep
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import string
-from biotext.fastatools import getHeader, fastaread, removePattern, getCons, list2fasta, getSeq, fastawrite
+from biotext.fastatools import getHeader, fastaread, removePattern, getCons, list2fasta, getSeq, fastawrite, fastatext2vect
 from biotext.aminocode import encodefile, decodetext
 
 # PARAMETERS
@@ -44,8 +43,8 @@ fastatxt = encodefile(descriptions,detailing=aminocode_det)
 # remove pattern
 fastatxt = removePattern(fastatxt,['^(.*?)YS'])
      
-# sweep
-mat_sweep = fas2sweep(fastatxt)
+# run sweep
+mat_sweep = fastatext2vect(fastatxt)
 
 # PCA
 pca = PCA(n_components=2)
