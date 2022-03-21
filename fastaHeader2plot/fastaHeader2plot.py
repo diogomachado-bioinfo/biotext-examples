@@ -9,7 +9,8 @@ REQUIREMENTS
 The testing of this script was done on Windows 10.
 For this script to work it is necessary:
  - have the clustal omega available in the PATH of the operating system (download from <http://www.clustal.org/omega/#Download>);
- - install the used python libraries from PyPI (biotext, matplotlib and their dependencies).
+ - install the used python libraries from PyPI (biotext, matplotlib and their dependencies);
+ - if you've never used the sweep library, you'll need to download the default projection matrix, just run: "python -c 'from sweep import down_proj_mat;down_proj_mat()'".
  
 RECOMMENDATION
 Files will be generated with the execution of this script, so it is recommended that it be executed inside an empty folder, for organizational reasons.
