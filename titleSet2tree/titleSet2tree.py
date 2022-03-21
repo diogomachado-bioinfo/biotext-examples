@@ -6,7 +6,9 @@ AUTHOR
 Diogo de J. S. Machado
 
 REQUIREMENTS
-For this script to work it is necessary to install the biotext library and its dependencies from PyPI. You can use the command "pip install biotext".
+For this script to work it is necessary:
+ - install the biotext library and its dependencies from PyPI. You can use the command "pip install biotext".
+ - if you've never used the sweep library, you'll need to download the default projection matrix, just run: "python -c 'from sweep import down_proj_mat;down_proj_mat()'".
 """
 
 import biotext as bt
