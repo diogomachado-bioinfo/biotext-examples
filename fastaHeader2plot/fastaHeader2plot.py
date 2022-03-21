@@ -59,7 +59,7 @@ clus = clus.labels_
 # define consensus
 cons = []
 for i in np.unique(clus):
-    c, align = getCons(np.array(fastatxt)[clus==i])
+    c, align = getCons(np.array(fastatxt, dtype=object)[clus==i])
     h = list(np.array(list(range(1,sum(clus==i)+1))).astype(str))
     fastawrite (list2fasta(align, header = h), 'align_'+str(i)+'.fasta') # save align file
     cons.append(c)
