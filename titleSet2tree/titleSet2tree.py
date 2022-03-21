@@ -4,6 +4,9 @@
 """
 AUTHOR
 Diogo de J. S. Machado
+
+REQUIREMENTS
+For this script to work it is necessary to install the biotext library and its dependencies from PyPI. You can use the command "pip install biotext".
 """
 
 import biotext as bt
