@@ -8,8 +8,8 @@ Diogo de J. S. Machado
 REQUIREMENTS
 The testing of this script was done on Windows 10.
 For this script to work it is necessary:
- - have the clustal omega available in the PATH of the operating system (downlaod from <http://www.clustal.org/omega/#Download>);
- - install the used python libraries from PyPI (biotext, sklearn, matplotlib and pandas).
+ - have the clustal omega available in the PATH of the operating system (download from <http://www.clustal.org/omega/#Download>);
+ - install the used python libraries from PyPI (biotext, matplotlib and their dependencies).
  
 RECOMMENDATION
 Files will be generated with the execution of this script, so it is recommended that it be executed inside an empty folder, for organizational reasons.
