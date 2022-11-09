@@ -27,23 +27,25 @@ if reRun_pubmedSearch:
     email = 'Your.Name.Here@example.org' # Email to inform pubmed who is doing the search.
     search_string = 'thioredoxin'
     
-    pubmed_set = bt.pubSearch(search_string,email,batch_size=1000)
+    pubmed_set = bt.pubmedtools.pubmed_search(search_string,email,
+                                              batch_size=1000)
     pubmed_set.to_csv(pubmedResult_fileName,header=True,index=False,sep='\t')
 else:
     pubmed_set = pd.read_csv(pubmedResult_fileName,sep='\t')
 
 # Run aminocode
-fasta = bt.aminocode.encodefile(pubmed_set['ti'],detailing='dp')
+fasta = bt.aminocode.encode_list(pubmed_set['ti'],detail='dp')
 
 # Run SWeeP
-mat = bt.fasta2vect(fasta)
+mat = bt.fastatools.fasta_to_mat(fasta)
 
 # Create a string to identify the dendrogram leaves, using the PMIDs and paper titles.
 # Non-alnumeric and non-space characters in titles are replaced with "_", to avoid conflict with the newick format syntax.
-leaves = [str(r['pmid'])+' - '+re.sub('[^\w\s]','_',r['ti']) for i,r in pubmed_set.iterrows()]
+leaves = [str(r['pmid'])+' - '+re.sub('[^\w\s]','_',r['ti']) for i,r in 
+          pubmed_set.iterrows()]
 
 # Run dendrogram (tree) creation in newick format
-tree = bt.mat2tree(mat,leaves,method='complete')
+tree = bt.treetools.mat_to_tree(mat,leaves,method='complete')
 
 # Save tree in a file
 with open(tree_fileName,'w') as f:
